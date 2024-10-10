@@ -48,4 +48,6 @@ public class Videogame {
         //System.out.println(res.get(true));
         System.out.println(res3.get(Console.ALL));
     }*/
+
+
 }
