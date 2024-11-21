@@ -1,5 +1,7 @@
 package com.debuggeando_ideas.code_challenge;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -16,23 +18,52 @@ class CodeImpl {
 
     //Es impar? impar return true - par return false
     public static PerformOperation isOdd() {
-        return null;
+        return n -> !(n % 2 == 0);
     }
 
     //Es un numero primo?
     public static PerformOperation isPrime() {
-        return null;
+        return n -> {
+          int divider = 1;
+          int count = 0;
+          while (divider <= n) {
+
+              if(n%divider == 0){
+                  count++;
+              }
+              if (count > 2) {
+                  break;
+              }
+              divider++;
+          }
+
+          return
+                   count == 2;
+        };
     }
 
     //Es un numero palindromo? 98589
     public static PerformOperation isPalindrome() {
-        return null;
+        return n -> {
+
+            String numString = Integer.toString(n);
+            char[]chars = numString.toCharArray();
+            int lenghtArray = chars.length;
+
+            for(int i = 0, r = lenghtArray -1; i < lenghtArray; i ++, r--) {
+                if(chars[i] != chars[r]) {
+                    return false;
+                }
+
+            }
+            return true;
+        };
     }
 }
 
-/*public class CodeChallenge {
+public class CodeChallenge {
 
-}
+
     @Test
     public void startTest() {
 
@@ -61,6 +92,7 @@ class CodeImpl {
               () -> assertFalse(isPrime.check(isPrimeCases[4]))
        );
 
+
        assertAll( "Test isPalindrome" ,
                () -> assertTrue(isPalindrome.check(isPalindromeCases[0])),
                () -> assertTrue(isPalindrome.check(isPalindromeCases[1])),
@@ -69,11 +101,11 @@ class CodeImpl {
                () -> assertFalse(isPalindrome.check(isPalindromeCases[4]))
        );
     }
-}*/
+}
 
 
 // Descomenta para probar con main method
-public class CodeChallenge {
+/*public class CodeChallenge {
 
     public static void main(String[] args) {
         PerformOperation isOdd = CodeImpl.isOdd();
@@ -89,6 +121,6 @@ public class CodeChallenge {
         System.out.println("isPalindrome test");
         Arrays.stream(isPalindromeCases).forEach(i -> System.out.println(isPalindrome.check(i))); //true, true, true, false, false
     }
-}
+}*/
 
 
