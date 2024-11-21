@@ -9,6 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
+/*
+
+
+OSCAR GUILLERMO DIAZ DEL ANGEL
+ */
+
 @FunctionalInterface
 interface PerformOperation {
     boolean check(int a);
